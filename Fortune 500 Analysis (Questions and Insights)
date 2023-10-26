@@ -76,6 +76,10 @@ SELECT company_name, revenue, employees
 FROM fortune_companies WHERE employees < 5000 AND revenue > 400;
 #Incredibly, 3 companies with just 2300-2500 employees each all make significantly more revenue than Apple
 
-#Is there loyalty in the low employment companies?
+#Is there more loyalty in the low employment companies?
+SELECT CASE WHEN employees > 5000 THEN "Large Companies"
+ELSE "Small Companies" END AS "company_size", AVG(avg_employee_tenure) FROM fortune_companies
+GROUP BY company_size;
+#Not really, the average employee tenure is only very slightly higher at smaller companies (6.0108 years)
 
 
