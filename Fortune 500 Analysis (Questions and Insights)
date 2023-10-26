@@ -66,4 +66,16 @@ SELECT industry, SUM(employees) FROM fortune_companies
 GROUP BY industry HAVING SUM(employees) < 50000;
 #Just so happens that number of employees working in Finance, Healthcare, and Manufacturing combined is also less than 50000.
 
+#What company has the longest average tenure and what is the longest tenure?
+SELECT company_name, healthcare_benefits, MAX(avg_employee_tenure)
+FROM fortune_companies;
+#Surprisingly, the company with the longest average tenure (Exxon Mobil Corporation with 7.8 years) does not have health care benefits
+
+#Are there any smaller companies with significantly more revenue than a huge company like Apple?
+SELECT company_name, revenue, employees
+FROM fortune_companies WHERE employees < 5000 AND revenue > 400;
+#Incredibly, 3 companies with just 2300-2500 employees each all make significantly more revenue than Apple
+
+#Is there loyalty in the low employment companies?
+
 
