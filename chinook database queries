@@ -1,0 +1,8 @@
+#Show artist and album for all hip hop tracks;
+
+SELECT a.Name AS artist, t.Name AS track, alb.Title AS album FROM tracks t 
+LEFT JOIN albums alb ON t.Albumid = alb.Albumid
+LEFT JOIN artists a ON a.Artistid = alb.Artistid LEFT JOIN genres g ON g.Genreid = t.Genreid
+WHERE g.Name = 'Hip Hop/Rap';
+
+#Surprisingly only 2 Hip Hop Albums.
